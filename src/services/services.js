@@ -16,3 +16,23 @@ export const greekRecipes = async () => {
   const response = await axios.get(`${API_URL}json/v1/1/filter.php?a=Greek`)
   return response.data.meals
 }
+
+export const getSingleRecipe = async (recipeId) => {
+  const response = await axios.get(
+    `${API_URL}json/v1/1/lookup.php?i=${recipeId}`
+  )
+  return response.data.meals[0]
+}
+
+export const getRecipesByType = async (typeName) => {
+  const response = await axios.get(
+    `${API_URL}json/v1/1/filter.php?c=${typeName}`
+  )
+  return response.data.meals
+}
+export const getRecipesByIngredient = async (ingredient) => {
+  const response = await axios.get(
+    `${API_URL}json/v1/1/filter.php?i=${ingredient}`
+  )
+  return response.data.meals
+}
