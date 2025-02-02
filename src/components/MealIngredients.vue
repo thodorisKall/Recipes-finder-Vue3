@@ -23,8 +23,12 @@ onMounted(async () => {
     <h2>Recipes by Ingredients</h2>
   </div>
   <div>
-    <button v-for="(ingredient, index) in ingredients" :key="index">
+    <router-link
+      v-for="(ingredient, index) in ingredients"
+      :key="index"
+      :to="`/ingredients/${ingredient.strIngredient}`"
+    >
       <p>{{ ingredient.strIngredient }}</p>
-    </button>
+    </router-link>
   </div>
 </template>

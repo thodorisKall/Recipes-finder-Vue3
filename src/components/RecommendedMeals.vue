@@ -4,12 +4,14 @@ import { recipes } from "../data/recipes.js"
 
 <template>
   <div>
-    <h3>Explore this collection of our all-time best dinner recipes</h3>
-    <h2>Recommended Recipes</h2>
-  </div>
-  <div v-for="recipe in recipes" :key="recipe.idMeal">
-    <button>
-      <p>{{ recipe.strMeal }}</p>
-    </button>
+    <div>
+      <h3>Explore this collection of our all-time best dinner recipes</h3>
+      <h2>Recommended Recipes</h2>
+    </div>
+    <div v-for="recipe in recipes" :key="recipe.idMeal">
+      <router-link :to="`/recipe/${recipe.idMeal}`">
+        <p>{{ recipe.strMeal }}</p>
+      </router-link>
+    </div>
   </div>
 </template>

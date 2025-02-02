@@ -19,8 +19,12 @@ onMounted(async () => {
     <h2>Greek Recipes</h2>
   </div>
   <div>
-    <button v-for="recipe in recipes" :key="recipe.idMeal">
+    <router-link
+      v-for="recipe in recipes"
+      :key="recipe.idMeal"
+      :to="`/recipe/${recipe.idMeal}`"
+    >
       <p>{{ recipe.strMeal }}</p>
-    </button>
+    </router-link>
   </div>
 </template>

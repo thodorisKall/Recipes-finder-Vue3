@@ -4,9 +4,13 @@
     <h2>Browse by Recipe Type</h2>
   </div>
   <div>
-    <button v-for="(type, index) in mealTypes" :key="index">
+    <router-link
+      v-for="(type, index) in mealTypes"
+      :key="index"
+      :to="`/category/${type.strCategory}`"
+    >
       <p>{{ type.strCategory }}</p>
-    </button>
+    </router-link>
   </div>
 </template>
 
