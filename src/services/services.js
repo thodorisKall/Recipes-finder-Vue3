@@ -30,9 +30,14 @@ export const getRecipesByType = async (typeName) => {
   )
   return response.data.meals
 }
+
 export const getRecipesByIngredient = async (ingredient) => {
-  const response = await axios.get(
-    `${API_URL}json/v1/1/filter.php?i=${ingredient}`
-  )
-  return response.data.meals
+  try {
+    const response = await axios.get(
+      `${API_URL}json/v1/1/filter.php?i=${ingredient}`
+    )
+    return response.data.meals
+  } catch (error) {
+    console.error("Error fetching recipes:", error.message)
+  }
 }
