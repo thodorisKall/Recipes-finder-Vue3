@@ -9,32 +9,32 @@ const route = useRoute()
 const ingredientName = route.params.name
 
 onMounted(async () => {
-  console.log(route)
-  try {
-    recipesWithIngredient.value = await getRecipesByIngredient(ingredientName)
-  } catch (e) {
-    console.error(`Error getting recipes by Ingredient: ${e.message}`)
-  }
+  recipesWithIngredient.value = await getRecipesByIngredient(ingredientName)
 })
 </script>
 
 <template>
-  <div v-if="recipesWithIngredient">
-    <h2>Type: {{ ingredientName }}</h2>
-    <div v-for="recipe in recipesWithIngredient" :key="recipe.idMeal">
-      <img :src="recipe.strMealThumb" :alt="recipe.strMeal" />
-      <div>
-        <p>{{ recipe.idMeal }}</p>
-        <button></button>
-      </div>
-      <div>
-        <h3>{{ recipe.strMeal }}</h3>
-        <p></p>
-        <h4></h4>
-      </div>
+  <section class="type_container" v-if="recipesWithIngredient">
+    <div class="type_title">
+      <h2>Ingredient: {{ ingredientName }}</h2>
     </div>
-  </div>
-  <div v-else>
+    <div class="recipes_desc">
+      <router-link
+        class="recipes_box"
+        v-for="recipe in recipesWithIngredient"
+        :key="recipe.idMeal"
+        :to="`/recipe/${recipe.idMeal}`"
+        :style="{
+          backgroundImage: `url(${recipe.strMealThumb})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }"
+      >
+        <p>{{ recipe.strMeal }}</p>
+      </router-link>
+    </div>
+  </section>
+  <section v-else>
     <h3>Loading.....</h3>
-  </div>
+  </section>
 </template>

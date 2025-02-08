@@ -1,16 +1,16 @@
 <template>
-  <div>
-    <div><img src="../assets/logo.png" alt="" /></div>
-    <div>
+  <nav>
+    <div class="nav_logo"><img src="../assets/logo.png" alt="" /></div>
+    <div class="nav_elements">
       <ul>
-        <li>Home</li>
-        <li>Recipes</li>
-        <li>Chefs</li>
-        <li>Pages</li>
-        <li>Contact</li>
+        <li><router-link to="/">HOME</router-link></li>
+        <li><a href="#greek_recipes">GREEK RECIPES</a></li>
+        <li>CHEFS</li>
+        <li><a href="#recommended">RECOMMENDED </a></li>
+        <li><a href="#footer">CONTACT</a></li>
       </ul>
     </div>
-  </div>
+  </nav>
 </template>
 
 <script></script>

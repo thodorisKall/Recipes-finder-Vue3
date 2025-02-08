@@ -2,6 +2,7 @@
 import { useRoute } from "vue-router"
 import { ref, onMounted } from "vue"
 import { getSingleRecipe } from "../services/services.js"
+import { Film } from "lucide-vue-next"
 
 const recipeData = ref(null)
 
@@ -11,7 +12,6 @@ const recipeId = route.params.id
 onMounted(async () => {
   try {
     recipeData.value = await getSingleRecipe(recipeId)
-    console.log(recipeData.value)
   } catch (e) {
     console.error(`Error getting Single Recipe data: ${e.message}`)
   }
@@ -39,39 +39,44 @@ const getYoutubeEmbedUrl = (url) => {
 </script>
 
 <template>
-  <div v-if="recipeData">
-    <h2>{{ recipeData.strMeal }}</h2>
-    <div>
+  <div class="recipe_view" v-if="recipeData">
+    <div class="recipe_view_title">
+      <h2>{{ recipeData.strMeal }}</h2>
+    </div>
+    <div class="recipe_view_basics">
       <img :src="recipeData.strMealThumb" :alt="recipeData.strMeal" />
-      <div>
-        <div>
+      <div class="recipe_view_attr">
+        <div class="recipe_view_box">
           <h4>Category</h4>
           <p>{{ recipeData.strCategory }}</p>
         </div>
-        <div>
+        <div class="recipe_view_box">
           <h4>Cuisines</h4>
           <p>{{ recipeData.strArea }}</p>
         </div>
-        <div>
+        <div class="recipe_view_box">
           <h4>Base Ingredients</h4>
           <p>{{ recipeData.strTags }}</p>
         </div>
       </div>
     </div>
-    <div>
-      <h3>Instructions</h3>
-      <p>{{ recipeData.strInstructions }}</p>
+    <div class="recipe_view_details">
+      <div class="recipe_view_desc">
+        <h3>Instructions</h3>
+        <p>{{ recipeData.strInstructions }}</p>
+      </div>
+      <div class="recipe_view_items">
+        <h3>Ingredients</h3>
+        <ul>
+          <li v-for="(item, index) in getIngredients()" :key="index">
+            <input type="checkbox" class="item_check" />
+            {{ item.measure }} {{ item.ingredient }}
+          </li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h3>Ingredients</h3>
-      <ul>
-        <li v-for="(item, index) in getIngredients()" :key="index">
-          {{ item.measure }} {{ item.ingredient }}
-        </li>
-      </ul>
-    </div>
-    <div v-if="recipeData.strYoutube">
-      <h2>Recipe Video</h2>
+    <div class="recipe_view_video" v-if="recipeData.strYoutube">
+      <h2><Film />{{ recipeData.strMeal }} Video</h2>
       <iframe
         width="600"
         height="340"

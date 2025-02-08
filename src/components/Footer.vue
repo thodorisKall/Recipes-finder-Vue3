@@ -5,46 +5,50 @@ import {
   Youtube,
   Linkedin,
   Twitter,
+  ChevronRight,
+  MapPin,
+  Mail,
+  Phone,
 } from "lucide-vue-next"
 </script>
 
 <template>
-  <div>
-    <div>
-      <div>
+  <footer id="footer">
+    <div class="footer_about">
+      <div class="footer_about_desc">
         <h3>About Us</h3>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed placeat
-          ad tenetur quae fugiat aut rem magnam libero architecto unde.
+          Browse our extensive collection of recipes that includes thousands of
+          recipes for cookies, cakes, breads, rolls and main dishe
         </p>
       </div>
       <div>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <p>Lorem, ipsum dolor.</p>
-        <p>Lorem, ipsum.</p>
+        <p><MapPin />Athens, Greece</p>
+        <p><Mail />info@email.com</p>
+        <p><Phone />+123 456 679 123</p>
       </div>
     </div>
-    <div>
+    <div class="footer_links">
       <h3>Quick Links</h3>
       <ul>
-        <li>About Us</li>
-        <li>Submit Your Recipe</li>
-        <li>Privacy Policy</li>
-        <li>Terms & Conditions</li>
-        <li>Submit Your Photos</li>
+        <li><ChevronRight />About Us</li>
+        <li><ChevronRight />Submit Your Recipe</li>
+        <li><ChevronRight />Privacy Policy</li>
+        <li><ChevronRight />Terms & Conditions</li>
+        <li><ChevronRight />Submit Your Photos</li>
       </ul>
     </div>
-    <div>
+    <div class="footer_courses">
       <h3>Courses</h3>
       <ul>
-        <li>Appetizers</li>
-        <li>Breads & Rolls</li>
-        <li>Condiments</li>
-        <li>Desserts</li>
-        <li>Dinners</li>
+        <li><ChevronRight />Appetizers</li>
+        <li><ChevronRight />Breads & Rolls</li>
+        <li><ChevronRight />Condiments</li>
+        <li><ChevronRight />Desserts</li>
+        <li><ChevronRight />Dinners</li>
       </ul>
     </div>
-    <div>
+    <div class="footer_recent">
       <h3>Recent Recipes</h3>
       <div>
         <img src="" alt="" />
@@ -54,7 +58,7 @@ import {
         </div>
       </div>
     </div>
-    <div>
+    <div class="footer_social">
       <h3>Social Links</h3>
       <ul>
         <li><Twitter /></li>
@@ -64,5 +68,5 @@ import {
         <li><Instagram /></li>
       </ul>
     </div>
-  </div>
+  </footer>
 </template>

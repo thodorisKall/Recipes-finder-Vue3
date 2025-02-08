@@ -8,12 +8,10 @@ import Footer from "../components/Footer.vue"
 
 <template>
   <div>
-    <h1>Hello World</h1>
-    <h1>Hello Vue Router</h1>
     <MealTypes />
+    <GreekMeals />
     <MealIngredients />
     <Recommended />
-    <GreekMeals />
 
     <router-view />
   </div>

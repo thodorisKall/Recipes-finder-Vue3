@@ -19,22 +19,27 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div v-if="recipesOf">
-    <h2>Type: {{ typeName }}</h2>
-    <div v-for="recipe in recipesOf" :key="recipe.idMeal">
-      <img :src="recipe.strMealThumb" :alt="recipe.strMeal" />
-      <div>
-        <p>{{ recipe.idMeal }}</p>
-        <button></button>
-      </div>
-      <div>
-        <h3>{{ recipe.strMeal }}</h3>
-        <p></p>
-        <h4></h4>
-      </div>
+  <section class="type_container" v-if="recipesOf">
+    <div class="type_title recipe_view_title">
+      <h2>Type: {{ typeName }}</h2>
     </div>
-  </div>
-  <div v-else>
+    <div class="recipes_desc">
+      <router-link
+        class="recipes_box"
+        v-for="recipe in recipesOf"
+        :key="recipe.idMeal"
+        :to="`/recipe/${recipe.idMeal}`"
+        :style="{
+          backgroundImage: `url(${recipe.strMealThumb})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }"
+      >
+        <p>{{ recipe.strMeal }}</p>
+      </router-link>
+    </div>
+  </section>
+  <section v-else>
     <h3>Loading.....</h3>
-  </div>
+  </section>
 </template>

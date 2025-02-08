@@ -1,16 +1,19 @@
 <template>
-  <div>
-    <h3>Browse Through Our Most Popular Recipe</h3>
-    <h2>Browse by Recipe Type</h2>
-  </div>
-  <div>
-    <router-link
-      v-for="(type, index) in mealTypes"
-      :key="index"
-      :to="`/category/${type.strCategory}`"
-    >
-      <p>{{ type.strCategory }}</p>
-    </router-link>
+  <div class="meal_type">
+    <div class="meal_type_title">
+      <h3>Browse Through Our Most Popular Recipe</h3>
+      <h2>Browse by Recipe Type</h2>
+    </div>
+    <div class="meal_type_types">
+      <router-link
+        class="meal_type_box"
+        v-for="(type, index) in mealTypes"
+        :key="index"
+        :to="`/category/${type.strCategory}`"
+      >
+        <p>{{ type.strCategory }}</p>
+      </router-link>
+    </div>
   </div>
 </template>
 
