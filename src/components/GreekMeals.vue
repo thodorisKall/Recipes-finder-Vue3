@@ -1,12 +1,12 @@
 <script setup>
 import { ref, onMounted } from "vue"
-import { greekRecipes } from "../services/services.js"
+import { getAreaRecipes } from "../services/services.js"
 
 const recipes = ref([])
 
 onMounted(async () => {
   try {
-    recipes.value = await greekRecipes()
+    recipes.value = await getAreaRecipes("Greek")
   } catch (e) {
     console.error(`Error getting GreekRecipes ${e.message}`)
   }
