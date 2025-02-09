@@ -22,10 +22,16 @@ import {
           recipes for cookies, cakes, breads, rolls and main dishe
         </p>
       </div>
-      <div>
-        <p><MapPin />Athens, Greece</p>
-        <p><Mail />info@email.com</p>
-        <p><Phone />+123 456 679 123</p>
+      <div class="footer_about_contact">
+        <p>
+          <span><MapPin /></span>Athens, Greece
+        </p>
+        <p>
+          <span><Mail /></span>info@email.com
+        </p>
+        <p>
+          <span><Phone /></span>+123 456 679 123
+        </p>
       </div>
     </div>
     <div class="footer_links">
