@@ -2,7 +2,7 @@
 import { useRoute } from "vue-router"
 import { ref, onMounted } from "vue"
 import { getSingleRecipe } from "../services/services.js"
-import { Film } from "lucide-vue-next"
+import { Film, MousePointerClick } from "lucide-vue-next"
 
 const recipeData = ref(null)
 
@@ -50,9 +50,11 @@ const getYoutubeEmbedUrl = (url) => {
           <h4>Category</h4>
           <p>{{ recipeData.strCategory }}</p>
         </div>
-        <div class="recipe_view_box">
+        <div class="recipe_view_box" id="recipe_view_area">
           <h4>Cuisines</h4>
-          <p>{{ recipeData.strArea }}</p>
+          <router-link :to="`/recipes/${recipeData.strArea}`"
+            >{{ recipeData.strArea }} <span><MousePointerClick /></span>
+          </router-link>
         </div>
         <div class="recipe_view_box">
           <h4>Base Ingredients</h4>
