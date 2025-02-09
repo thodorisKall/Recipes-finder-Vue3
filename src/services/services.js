@@ -12,8 +12,10 @@ export const getIngredients = async () => {
   return response.data.meals.slice(0, 10)
 }
 
-export const greekRecipes = async () => {
-  const response = await axios.get(`${API_URL}json/v1/1/filter.php?a=Greek`)
+export const getAreaRecipes = async (areaName) => {
+  const response = await axios.get(
+    `${API_URL}json/v1/1/filter.php?a=${areaName}`
+  )
   return response.data.meals
 }
 
