@@ -11,6 +11,7 @@
         :key="index"
         :to="`/category/${type.strCategory}`"
       >
+        <span><CookingPot /> </span>
         <p>{{ type.strCategory }}</p>
       </router-link>
     </div>
@@ -20,13 +21,13 @@
 <script setup>
 import { ref, onMounted } from "vue"
 import { getMealTypes } from "../services/services.js"
+import { CookingPot } from "lucide-vue-next"
 
 const mealTypes = ref([])
 
 onMounted(async () => {
   try {
     mealTypes.value = await getMealTypes()
-    console.log("Fetched meal types:", mealTypes.value)
   } catch (error) {
     console.error("Error fetching meal types:", error)
   }
