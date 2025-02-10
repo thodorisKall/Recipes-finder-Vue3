@@ -16,6 +16,7 @@ Navigation is smooth, with multiple routes managed by Vue 3 Router. The layout i
 
 ## 4. Outcome
 
+![Στιγμιότυπο οθόνης (659)](https://github.com/user-attachments/assets/81e3e1a3-2722-4ef9-b57c-9d0c7197f3ca)
 The project provides a simple and intuitive user interface. Users can easily find and explore recipes while navigating seamlessly through different sections.
 
 ## 5. Tech Stack
