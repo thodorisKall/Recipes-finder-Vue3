@@ -7,7 +7,6 @@ const ingredients = ref([])
 onMounted(async () => {
   try {
     ingredients.value = await getIngredients()
-    console.log(ingredients.value)
   } catch (e) {
     console.error(`Error getting Ingredients API: ${e.message}`)
   }

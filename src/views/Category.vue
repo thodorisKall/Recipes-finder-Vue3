@@ -11,7 +11,6 @@ const typeName = route.params.name
 onMounted(async () => {
   try {
     recipesOf.value = await getRecipesByType(typeName)
-    console.log(recipesOf.value)
   } catch (e) {
     console.error(`Error getting recipes by Type: ${e.message}`)
   }
